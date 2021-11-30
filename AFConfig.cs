@@ -27,13 +27,7 @@ namespace Design_Patterns_Assignment
             builder.RegisterType<StrategyApp>().As<IStrategyApp>();
 
             builder.RegisterAssemblyTypes(Assembly.GetExecutingAssembly())
-                .Where(i => i.Namespace.Contains("Sender"))
-                .As(i => i.GetInterfaces()
-                .FirstOrDefault(n => n.Name == "I" + i.Name))
-                   .AsImplementedInterfaces();
-
-            builder.RegisterAssemblyTypes(Assembly.GetExecutingAssembly())
-                .Where(i => i.Namespace.Contains("Messages"))
+                .Where(i => i.Namespace.Contains("Strategy"))
                 .As(i => i.GetInterfaces()
                 .FirstOrDefault(n => n.Name == "I" + i.Name))
                    .AsImplementedInterfaces();
@@ -45,33 +39,26 @@ namespace Design_Patterns_Assignment
                 .FirstOrDefault(n => n.Name == "I" + i.Name))
                    .AsImplementedInterfaces();
 
-
             ////Observer
             builder.RegisterType<ObserverApp>().As<IObserverApp>();
             builder.RegisterAssemblyTypes(Assembly.GetExecutingAssembly())
-                .Where(i => i.Namespace.Contains("SubjectFiles"))
+                .Where(i => i.Namespace.Contains("Observer"))
                 .As(i => i.GetInterfaces()
                 .FirstOrDefault(n => n.Name == "I" + i.Name))
                    .AsImplementedInterfaces();
-
-            builder.RegisterAssemblyTypes(Assembly.GetExecutingAssembly())
-                .Where(i => i.Namespace.Contains("ObserverFiles"))
-                .As(i => i.GetInterfaces()
-                .FirstOrDefault(n => n.Name == "I" + i.Name))
-                   .AsImplementedInterfaces();
-
 
             ////Decorator
-            builder.RegisterAssemblyTypes(Assembly.GetExecutingAssembly())
-                .Where(i => i.Namespace.Contains("Decorator"))
-                .As(i => i.GetInterfaces()
-                .FirstOrDefault(n => n.Name == "I" + i.Name))
-                   .AsImplementedInterfaces();
-            builder.RegisterAssemblyTypes(Assembly.GetExecutingAssembly())
-                .Where(i => i.Namespace.Contains("TextDecorators"))
-                .As(i => i.GetInterfaces()
-                .FirstOrDefault(n => n.Name == "I" + i.Name))
-                   .AsImplementedInterfaces();
+            ///
+            //builder.RegisterAssemblyTypes(Assembly.GetExecutingAssembly())
+            //    .Where(i => i.Namespace.Contains("Decorator"))
+            //    .As(i => i.GetInterfaces()
+            //    .FirstOrDefault(n => n.Name == "I" + i.Name))
+            //       .AsImplementedInterfaces();
+            //builder.RegisterAssemblyTypes(Assembly.GetExecutingAssembly())
+            //    .Where(i => i.Namespace.Contains("TextDecorators"))
+            //    .As(i => i.GetInterfaces()
+            //    .FirstOrDefault(n => n.Name == "I" + i.Name))
+            //       .AsImplementedInterfaces();
             //builder.RegisterType<DecoratorApp>().As<IDecoratorApp>();
             //builder.RegisterType<RegularText>().As<IRegularText>();
             //builder.RegisterType<Bold>().As<IBold>();

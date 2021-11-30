@@ -8,7 +8,6 @@ namespace Design_Patterns_Assignment.Strategy
 {
     public interface IStrategyApp
     {
-
         void Run();
     }
 }
