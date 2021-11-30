@@ -23,6 +23,8 @@ namespace Design_Patterns_Assignment.Decorator
         }
 
         public IText Text { get; set; }
+        
+
 
         public void Run()
         {
@@ -44,7 +46,7 @@ namespace Design_Patterns_Assignment.Decorator
             Console.WriteLine("K: Superscript ");
             Console.WriteLine("Ö: Exit ");
 
-
+            Text.SetInput();
 
 
             //Main Loop

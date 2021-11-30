@@ -8,6 +8,6 @@ namespace Design_Patterns_Assignment.Decorator
 {
     public interface IRegularText : IText
     {
-        string GetInput();
+        
     }
 }

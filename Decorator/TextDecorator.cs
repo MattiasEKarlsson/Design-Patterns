@@ -21,5 +21,10 @@ namespace Design_Patterns_Assignment.Decorator
         {
             return StartTag+ Text.GetDescription() + EndTag;
         }
+
+        public void SetInput()
+        {
+            Console.WriteLine("I do nothing :(");
+        }
     }
 }

@@ -10,7 +10,7 @@ namespace Design_Patterns_Assignment.Decorator
     {
         public RegularText()
         {
-            Description = GetInput();
+            Description = "";
         }
 
         public string Description { get; set; }
@@ -19,11 +19,22 @@ namespace Design_Patterns_Assignment.Decorator
             return Description;
         }
 
-        public string GetInput()
+        public void SetInput()
         {
-            Console.WriteLine("Enter text that you want to decorate:");
-            string input = Console.ReadLine();
-            return input;
+            Console.SetCursorPosition(0, 20);
+            bool validInput = false;
+            while (!validInput)
+            {
+                Console.WriteLine("Enter text that you want to decorate:");
+                string userInput = Console.ReadLine();
+
+                if (!String.IsNullOrWhiteSpace(userInput))
+                {
+                    validInput = true;
+                    Description = userInput;
+                }
+            }
+            Console.WriteLine("Enter Tags.");
         }
     }
 }

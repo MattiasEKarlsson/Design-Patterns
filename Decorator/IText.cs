@@ -9,5 +9,7 @@ namespace Design_Patterns_Assignment.Decorator
     public interface IText
     {
         string GetDescription();
+        void SetInput();
+
     }
 }
