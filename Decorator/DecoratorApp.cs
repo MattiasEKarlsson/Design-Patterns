@@ -24,10 +24,11 @@ namespace Design_Patterns_Assignment.Decorator
             Console.WriteLine("  Select an action   ");
             Console.WriteLine("---------------------");
             Console.WriteLine("F: Finished");
-            Console.WriteLine("W: Add Bold");
+            Console.WriteLine("B: Bold");
+            Console.WriteLine("D: Deleted");
 
-            
-            
+
+
             //Main Game Loop
             while (true)
             {
@@ -38,18 +39,20 @@ namespace Design_Patterns_Assignment.Decorator
                 {
                     case 'f' or 'F':
                         ClearRow();
-                        Console.WriteLine($"Your Order Is: {Text.GetDescription()}");
+                        Console.WriteLine($"Generated text: {Text.GetDescription()}");
                         Text = newText;
                         break;
 
-                    case 'w' or 'W':
+                    case 'b' or 'B':
                         ClearRow();
                         Console.WriteLine("Adding Bold");
                         Text = new Bold(Text);
                         break;
-
-                    
-
+                    case 'd' or 'D':
+                        ClearRow();
+                        Console.WriteLine("Adding Deleted");
+                        Text = new Deleted(Text);
+                        break;
                     default:
                         ClearRow();
                         Console.Write("That is not a valid choice");

@@ -6,7 +6,12 @@ using System.Threading.Tasks;
 
 namespace Design_Patterns_Assignment.Decorator.Decorators
 {
-    public interface IBold
+    public class Deleted : TextDecorator, IDeleted
     {
+        public Deleted(IText text) : base(text)
+        {
+            StartTag = "<del>";
+            EndTag = "</del>";
+        }
     }
 }

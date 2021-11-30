@@ -6,7 +6,8 @@ using System.Threading.Tasks;
 
 namespace Design_Patterns_Assignment.Decorator.Decorators
 {
-    public interface IBold
+    public interface IDeleted
     {
+
     }
 }

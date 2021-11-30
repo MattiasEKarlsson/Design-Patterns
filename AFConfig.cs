@@ -55,17 +55,6 @@ namespace Design_Patterns_Assignment
                 .FirstOrDefault(n => n.Name == "I" + i.Name))
                    .AsImplementedInterfaces();
 
-
-
-
-
-
-
-
-
-
-
-
             return builder.Build();
         }
     }

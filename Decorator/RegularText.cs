@@ -21,7 +21,7 @@ namespace Design_Patterns_Assignment.Decorator
 
         public string GetInput()
         {
-            Console.WriteLine("Enter text:");
+            Console.WriteLine("Enter text that you want to decorate:");
             string input = Console.ReadLine();
             return input;
         }
