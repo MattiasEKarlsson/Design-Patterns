@@ -6,8 +6,8 @@ using System.Threading.Tasks;
 
 namespace Design_Patterns_Assignment.Decorator
 {
-    public interface IHTMLText
+    public interface IText
     {
-        string DescriptionText(string input);
+        string GetDescription();
     }
 }

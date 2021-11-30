@@ -8,13 +8,13 @@ namespace Design_Patterns_Assignment.Decorator
 {
     public class RegularText : IRegularText
     {
-        public string Description { get; private set; }
-        public RegularText(string description)
+        public RegularText()
         {
-            Description = " ";
+            Description = "Empty";
         }
 
-        public string DescriptionText(string input)
+        public string Description { get; private set; }
+        public string GetDescription()
         {
             return Description;
         }

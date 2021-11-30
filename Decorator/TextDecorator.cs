@@ -6,18 +6,19 @@ using System.Threading.Tasks;
 
 namespace Design_Patterns_Assignment.Decorator
 {
-    public class TextDecorator : IHTMLText
+    public abstract class TextDecorator : IText
     {
-        public IHTMLText HtmlText { get; set; }
+        public IText Text { get; set; }
         public string Description;
 
-        public TextDecorator(IHTMLText htmlText)
+        protected TextDecorator(IText text)
         {
-            HtmlText = htmlText;
+            Text = text;
         }
-        public string DescriptionText(string input)
+
+        public string GetDescription()
         {
-            return Description + input + Description;
+            return Text.GetDescription() + ", " + Description;
         }
     }
 }

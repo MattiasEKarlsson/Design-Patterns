@@ -4,11 +4,11 @@ using System.Linq;
 using System.Text;
 using System.Threading.Tasks;
 
-namespace Design_Patterns_Assignment.Decorator.TextDecorators
+namespace Design_Patterns_Assignment.Decorator.Decorators
 {
     public class Bold : TextDecorator, IBold
     {
-        public Bold(IHTMLText htmlText) : base(htmlText)
+        public Bold(IText text) : base(text)
         {
             Description = "<b>";
         }

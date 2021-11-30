@@ -1,4 +1,5 @@
-﻿using Design_Patterns_Assignment.Decorator.TextDecorators;
+﻿
+using Design_Patterns_Assignment.Decorator.Decorators;
 using System;
 using System.Collections.Generic;
 using System.Linq;
@@ -9,23 +10,29 @@ namespace Design_Patterns_Assignment.Decorator
 {
     public class DecoratorApp : IDecoratorApp
     {
-        public DecoratorApp(IRegularText htmlText)
+        public DecoratorApp(IRegularText text)
         {
-            HtmlText = htmlText;
+            Text = text;
         }
 
-        public IHTMLText HtmlText { get; set; }
+        public IText Text { get; set; }
+        
 
         public void Run()
         {
+            var newText = Text;
+
             var aa = "Matte";
 
+            Text = new Bold(Text);
+            Text = new Bold(Text);
+            Console.WriteLine($"Your Order Is: {Text.GetDescription()}");
 
+            Console.WriteLine(aa);
 
 
             
-            HtmlText = new Bold(HtmlText);
-            Console.WriteLine($"{HtmlText.DescriptionText(aa)}");
+            
         }
     }
 }

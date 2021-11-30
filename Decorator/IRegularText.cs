@@ -6,7 +6,7 @@ using System.Threading.Tasks;
 
 namespace Design_Patterns_Assignment.Decorator
 {
-    public interface IRegularText : IHTMLText
+    public interface IRegularText : IText
     {
     }
 }
