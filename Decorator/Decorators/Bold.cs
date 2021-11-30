@@ -10,7 +10,8 @@ namespace Design_Patterns_Assignment.Decorator.Decorators
     {
         public Bold(IText text) : base(text)
         {
-            Description = "<b>";
+            StartTag = "<b>";
+            EndTag = "</b>";
         }
     }
 }

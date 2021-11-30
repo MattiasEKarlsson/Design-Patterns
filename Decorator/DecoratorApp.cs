@@ -16,23 +16,66 @@ namespace Design_Patterns_Assignment.Decorator
         }
 
         public IText Text { get; set; }
-        
 
         public void Run()
         {
             var newText = Text;
+            Console.WriteLine("---------------------");
+            Console.WriteLine("  Select an action   ");
+            Console.WriteLine("---------------------");
+            Console.WriteLine("F: Finished");
+            Console.WriteLine("W: Add Bold");
 
-            var aa = "Matte";
+            
+            
+            //Main Game Loop
+            while (true)
+            {
+                // Get User Input
+                var userInput = Console.ReadKey(true).KeyChar;
 
-            Text = new Bold(Text);
-            Text = new Bold(Text);
-            Console.WriteLine($"Your Order Is: {Text.GetDescription()}");
+                switch (userInput)
+                {
+                    case 'f' or 'F':
+                        ClearRow();
+                        Console.WriteLine($"Your Order Is: {Text.GetDescription()}");
+                        Text = newText;
+                        break;
 
-            Console.WriteLine(aa);
+                    case 'w' or 'W':
+                        ClearRow();
+                        Console.WriteLine("Adding Bold");
+                        Text = new Bold(Text);
+                        break;
+
+                    
+
+                    default:
+                        ClearRow();
+                        Console.Write("That is not a valid choice");
+                        break;
+                }
+            }
+
+
+            
+            
+            
+
+            
 
 
             
             
         }
+        private static void ClearRow()
+        {
+            // Set cursor below the menu
+            Console.SetCursorPosition(1, 9);
+
+            // Clear Row
+            Console.Write("\r" + new string(' ', Console.BufferWidth) + "\r");
+        }
     }
+        
 }

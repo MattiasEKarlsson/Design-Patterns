@@ -9,7 +9,8 @@ namespace Design_Patterns_Assignment.Decorator
     public abstract class TextDecorator : IText
     {
         public IText Text { get; set; }
-        public string Description;
+        public string StartTag;
+        public string EndTag;
 
         protected TextDecorator(IText text)
         {
@@ -18,7 +19,7 @@ namespace Design_Patterns_Assignment.Decorator
 
         public string GetDescription()
         {
-            return Text.GetDescription() + ", " + Description;
+            return StartTag+ Text.GetDescription() + EndTag;
         }
     }
 }

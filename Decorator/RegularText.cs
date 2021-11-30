@@ -10,13 +10,20 @@ namespace Design_Patterns_Assignment.Decorator
     {
         public RegularText()
         {
-            Description = "Empty";
+            Description = GetInput();
         }
 
-        public string Description { get; private set; }
+        public string Description { get; set; }
         public string GetDescription()
         {
             return Description;
+        }
+
+        public string GetInput()
+        {
+            Console.WriteLine("Enter text:");
+            string input = Console.ReadLine();
+            return input;
         }
     }
 }
