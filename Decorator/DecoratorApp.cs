@@ -1,5 +1,12 @@
 ﻿
 using Design_Patterns_Assignment.Decorator.Decorators;
+using Design_Patterns_Assignment.Decorator.Decorators.Important;
+using Design_Patterns_Assignment.Decorator.Decorators.Insert;
+using Design_Patterns_Assignment.Decorator.Decorators.Italic;
+using Design_Patterns_Assignment.Decorator.Decorators.Marked;
+using Design_Patterns_Assignment.Decorator.Decorators.Smaller;
+using Design_Patterns_Assignment.Decorator.Decorators.Subscript;
+using Design_Patterns_Assignment.Decorator.Decorators.Superscript;
 using System;
 using System.Collections.Generic;
 using System.Linq;
@@ -21,15 +28,26 @@ namespace Design_Patterns_Assignment.Decorator
         {
             var newText = Text;
             Console.WriteLine("---------------------");
-            Console.WriteLine("  Select an action   ");
+            Console.WriteLine("  Add Tags.   ");
             Console.WriteLine("---------------------");
-            Console.WriteLine("F: Finished");
+            Console.WriteLine("A: Finished");
+            Console.WriteLine("---------------------");
             Console.WriteLine("B: Bold");
-            Console.WriteLine("D: Deleted");
+            Console.WriteLine("C: Deleted");
+            Console.WriteLine("D: Emphasized ");
+            Console.WriteLine("E: Important ");
+            Console.WriteLine("F: Insert ");
+            Console.WriteLine("G: Italic ");
+            Console.WriteLine("H: Marked ");
+            Console.WriteLine("I: Smaller ");
+            Console.WriteLine("J: Subscript ");
+            Console.WriteLine("K: Superscript ");
+            Console.WriteLine("Ö: Exit ");
 
 
 
-            //Main Game Loop
+
+            //Main Loop
             while (true)
             {
                 // Get User Input
@@ -37,7 +55,7 @@ namespace Design_Patterns_Assignment.Decorator
 
                 switch (userInput)
                 {
-                    case 'f' or 'F':
+                    case 'a' or 'A':
                         ClearRow();
                         Console.WriteLine($"Generated text: {Text.GetDescription()}");
                         Text = newText;
@@ -48,10 +66,55 @@ namespace Design_Patterns_Assignment.Decorator
                         Console.WriteLine("Adding Bold");
                         Text = new Bold(Text);
                         break;
-                    case 'd' or 'D':
+                    case 'c' or 'C':
                         ClearRow();
                         Console.WriteLine("Adding Deleted");
                         Text = new Deleted(Text);
+                        break;
+                    case 'd' or 'D':
+                        ClearRow();
+                        Console.WriteLine("Adding Emphasized");
+                        Text = new Emphasized(Text);
+                        break;
+                    case 'e' or 'E':
+                        ClearRow();
+                        Console.WriteLine("Adding Important");
+                        Text = new Important(Text);
+                        break;
+                    case 'f' or 'F':
+                        ClearRow();
+                        Console.WriteLine("Adding Inserted");
+                        Text = new Insert(Text);
+                        break;
+                    case 'g' or 'G':
+                        ClearRow();
+                        Console.WriteLine("Adding Italic");
+                        Text = new Italic(Text);
+                        break;
+                    case 'h' or 'H':
+                        ClearRow();
+                        Console.WriteLine("Adding Marked");
+                        Text = new Marked(Text);
+                        break;
+                    case 'i' or 'I':
+                        ClearRow();
+                        Console.WriteLine("Adding Smaller");
+                        Text = new Smaller(Text);
+                        break;
+                    case 'j' or 'J':
+                        ClearRow();
+                        Console.WriteLine("Adding Subscript");
+                        Text = new Subscript(Text);
+                        break;
+                    case 'k' or 'K':
+                        ClearRow();
+                        Console.WriteLine("Adding Superscript");
+                        Text = new Superscript(Text);
+                        break;
+                    case 'ö' or 'Ö':
+                        ClearRow();
+                        Console.Write("Exiting program");
+                        Environment.Exit(0);
                         break;
                     default:
                         ClearRow();
@@ -74,7 +137,7 @@ namespace Design_Patterns_Assignment.Decorator
         private static void ClearRow()
         {
             // Set cursor below the menu
-            Console.SetCursorPosition(1, 9);
+            Console.SetCursorPosition(1, 18);
 
             // Clear Row
             Console.Write("\r" + new string(' ', Console.BufferWidth) + "\r");
