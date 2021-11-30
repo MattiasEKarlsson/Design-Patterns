@@ -1,4 +1,5 @@
-﻿using Design_Patterns_Assignment.Observer;
+﻿using Design_Patterns_Assignment.Decorator;
+using Design_Patterns_Assignment.Observer;
 using Design_Patterns_Assignment.Repository;
 using Design_Patterns_Assignment.Strategy;
 using System;
@@ -11,22 +12,25 @@ namespace Design_Patterns_Assignment
 {
     public class Application : IApplication
     {
-        public Application(IRepositoryApp repository, IStrategyApp strategy, IObserverApp observer)
+        public Application(IRepositoryApp repository, IStrategyApp strategy, IObserverApp observer, IDecoratorApp decorator)
         {
             Repository = repository;
             Strategy = strategy;
             Observer = observer;
+            Decorator = decorator;
         }
 
         public IRepositoryApp Repository { get; set; }
         public IStrategyApp Strategy { get; set; }
         public IObserverApp Observer { get; set; }
+        public IDecoratorApp Decorator { get; set; }
 
 
 
         public void Run()
         {
-            Observer.Run();
+            Decorator.Run();
+            //Observer.Run();
             //Repository.Run();
             //Strategy.Run();
         }

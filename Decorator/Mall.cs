@@ -2,7 +2,7 @@
 
 namespace Design_Patterns_Assignment
 {
-    class HTMLGenerator
+    class Mall
     {
         internal static string TagProcessor(string tagSelection, string textInput)
         {

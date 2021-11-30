@@ -5,6 +5,8 @@ using System.Reflection;
 using System.Text;
 using System.Threading.Tasks;
 using Autofac;
+using Design_Patterns_Assignment.Decorator;
+using Design_Patterns_Assignment.Decorator.TextDecorators;
 using Design_Patterns_Assignment.Observer;
 using Design_Patterns_Assignment.Strategy;
 using Design_Patterns_Assignment.Strategy.Messages;
@@ -57,11 +59,19 @@ namespace Design_Patterns_Assignment
                 .As(i => i.GetInterfaces()
                 .FirstOrDefault(n => n.Name == "I" + i.Name))
                    .AsImplementedInterfaces();
-            //builder.RegisterType<ObserverApp>().As<IObserverApp>();
-            //builder.RegisterType<InboxWatcher>().As<IInboxWatcher>();
-            //builder.RegisterType<Email_Inbox>().As<IEmail_Inbox>();
+
 
             ////Decorator
+            builder.RegisterAssemblyTypes(Assembly.GetExecutingAssembly())
+                .Where(i => i.Namespace.Contains("Decorator"))
+                .As(i => i.GetInterfaces()
+                .FirstOrDefault(n => n.Name == "I" + i.Name))
+                   .AsImplementedInterfaces();
+            builder.RegisterAssemblyTypes(Assembly.GetExecutingAssembly())
+                .Where(i => i.Namespace.Contains("TextDecorators"))
+                .As(i => i.GetInterfaces()
+                .FirstOrDefault(n => n.Name == "I" + i.Name))
+                   .AsImplementedInterfaces();
             //builder.RegisterType<DecoratorApp>().As<IDecoratorApp>();
             //builder.RegisterType<RegularText>().As<IRegularText>();
             //builder.RegisterType<Bold>().As<IBold>();
